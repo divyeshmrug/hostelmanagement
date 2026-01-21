@@ -301,16 +301,72 @@ h6 {
 @media (max-width: 900px) {
     .dashboard-layout {
         flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 10px;
     }
 
     .sidebar {
         width: 100%;
         height: auto;
-        padding: 20px;
+        padding: 15px;
+        order: 2; /* Move sidebar to bottom or keep at top? Let's keep at top for nav */
+    }
+
+    .nav-links {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .nav-item {
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
 
     .content {
+        width: 100%;
         height: auto;
+        order: 1;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack cards vertically */
+    }
+    
+    .payment-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .top-bar {
+        padding: 15px;
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .user-profile {
+        display: none; /* Hide in sidebar, maybe show in top bar or simplified version */
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        padding: 16px;
+    }
+    
+    .stat-card .value {
+        font-size: 1.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
     }
 }
 

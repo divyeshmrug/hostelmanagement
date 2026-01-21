@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d www"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
     "@capacitor/android": "^8.0.1",
     "@capacitor/cli": "^8.0.1",
     "@capacitor/core": "^8.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
