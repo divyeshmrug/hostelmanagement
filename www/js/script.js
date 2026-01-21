@@ -4239,6 +4239,19 @@ const Components = {
 
             ${isAdmin ? `
             <hr style="border: 0; border-top: 1px solid var(--glass-border); margin: 30px 0;">
+            <div style="margin-bottom: 40px; background: rgba(16, 185, 129, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.2);">
+                <h4 style="margin-bottom: 15px; color: #10b981;"><i class="bi bi-database-down"></i> Database Backup</h4>
+                <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 15px;">Download the complete database including all users, hostels, and complaints.</p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <a href="/api/backup" target="_blank" class="btn-primary" style="background:#10b981; text-decoration:none; display:inline-flex;">
+                        <i class="bi bi-cloud-download"></i> MongoDB Backup
+                    </a>
+                    <button onclick="App.exportToJSON()" class="btn-primary" style="background:rgba(255,255,255,0.1);">
+                        <i class="bi bi-filetype-json"></i> Local Backup
+                    </button>
+                </div>
+            </div>
+
             <div style="margin-bottom: 40px; background: rgba(239, 68, 68, 0.05); padding: 20px; border-radius: 12px; border: 1px solid rgba(239, 68, 68, 0.2);">
                 <h4 style="margin-bottom: 15px; color: #f87171;"><i class="bi bi-shield-lock"></i> Universal Password Reset</h4>
                 <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 15px;">Change any Rector or Student's password using their UID or Email.</p>
