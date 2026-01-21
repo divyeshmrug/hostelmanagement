@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Lumina Hostel</string>
+    <string name="title_activity_main">Lumina Hostel</string>
+    <string name="package_name">com.lumina.hostel</string>
+    <string name="custom_url_scheme">com.lumina.hostel</string>
+</resources>
