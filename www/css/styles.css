@@ -303,55 +303,113 @@ h6 {
         flex-direction: column;
         width: 100%;
         height: auto;
-        padding: 10px;
+        padding: 0;
+        margin: 0;
     }
 
     .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
         width: 100%;
         height: auto;
-        padding: 15px;
-        order: 2; /* Move sidebar to bottom or keep at top? Let's keep at top for nav */
+        padding: 10px 15px;
+        z-index: 1000;
+        background: rgba(15, 23, 42, 0.95);
+        /* Dark background for visibility */
+        border-top: 1px solid var(--glass-border);
+        border-radius: 20px 20px 0 0;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+        margin: 0;
+        order: 99;
+        /* Force to bottom */
+    }
+
+    /* Hide Brand and User Profile in Bottom Nav */
+    .sidebar .brand,
+    .sidebar .user-profile {
+        display: none;
     }
 
     .nav-links {
         flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: 5px;
-    }
-    
-    .nav-item {
-        white-space: nowrap;
-        padding: 8px 12px;
-        font-size: 0.9rem;
+        justify-content: space-around;
+        padding: 0;
+        gap: 0;
     }
 
+    .nav-item {
+        flex-direction: column;
+        justify-content: center;
+        padding: 8px;
+        background: transparent !important;
+        /* Remove background on mobile to save space */
+        border: none !important;
+        gap: 4px;
+        font-size: 0.75rem;
+        /* Smaller text */
+    }
+
+    .nav-item i {
+        font-size: 1.4rem;
+        margin: 0;
+    }
+
+    .nav-item span {
+        display: block;
+        /* Ensure label is shown below icon */
+    }
+
+    .nav-item.active {
+        color: var(--primary);
+    }
+
+    /* Adjust Content to account for Top Bar and Bottom Nav */
     .content {
         width: 100%;
         height: auto;
-        order: 1;
+        padding-bottom: 90px;
+        /* Space for bottom nav */
+        overflow-y: visible;
+        /* Allow body scroll */
     }
+
+    #content-area {
+        overflow-y: visible;
+        padding: 15px;
+    }
+
+    /* Top Bar Adjustments */
+    .top-bar {
+        position: sticky;
+        top: 0;
+        z-index: 900;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 15px 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .top-bar h2 {
+        font-size: 1.3rem;
+        margin: 0;
+    }
+
+    /* Make logout visible in top bar context if needed, or keep in sidebar? 
+       Actually, sidebar logout button might crowd the bottom nav. 
+       Let's keep it simple for now. */
 
     .stats-grid {
-        grid-template-columns: 1fr; /* Stack cards vertically */
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
-    
+
     .payment-selection {
         grid-template-columns: 1fr;
-    }
-
-    .top-bar {
-        padding: 15px;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .user-profile {
-        display: none; /* Hide in sidebar, maybe show in top bar or simplified version */
-    }
-
-    h2 {
-        font-size: 1.5rem;
     }
 }
 
@@ -359,7 +417,7 @@ h6 {
     .stat-card {
         padding: 16px;
     }
-    
+
     .stat-card .value {
         font-size: 1.5rem;
     }
